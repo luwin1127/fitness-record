@@ -50,7 +50,7 @@ class _XWorkoutAppState extends ConsumerState<XWorkoutApp> {
     }
 
     return CupertinoApp.router(
-      title: 'XWorkout',
+      title: '健身记录',
       theme: theme,
       routerConfig: appRouter,
       localizationsDelegates: const [

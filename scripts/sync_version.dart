@@ -29,8 +29,8 @@ void main() async {
   final filesToUpdate = <String, List<VersionReplacement>>{
     'lib/features/more/presentation/more_screen.dart': [
       VersionReplacement(
-        pattern: RegExp(r"'XWorkout v[\d.]+'"),
-        replacement: "'XWorkout v$version'",
+        pattern: RegExp(r"'健身记录 v[\d.]+'"),
+        replacement: "'健身记录 v$version'",
       ),
       VersionReplacement(
         pattern: RegExp(r"'Build \d+'"),

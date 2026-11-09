@@ -293,7 +293,7 @@ class DataExportRepository {
           return [
             pw.Header(
               level: 0,
-              child: pw.Text('XWorkout Data Export', style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold)),
+              child: pw.Text('Fitness Record Data Export', style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold)),
             ),
             pw.Paragraph(text: 'Export Date: ${DateTime.now().toString().split('.')[0]}'),
             pw.Paragraph(

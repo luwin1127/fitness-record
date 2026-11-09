@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:xworkout/features/history/presentation/workout_history_screen.dart';
 import 'package:xworkout/features/history/presentation/calendar_history_screen.dart';
 import 'package:xworkout/features/data/data_management_screen.dart';
@@ -124,7 +123,7 @@ class MoreScreen extends ConsumerWidget {
             const SizedBox(height: 32),
             const Center(
               child: Text(
-                'XWorkout v4.9.15',
+                '健身记录 v4.9.15',
                 style: TextStyle(
                   fontSize: 13,
                   color: CupertinoColors.systemGrey,
@@ -195,7 +194,7 @@ class MoreScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 8),
-              Text('XWorkout 基于 MIT 许可证开源。'),
+              Text('健身记录 基于 XWorkout（MIT 协议）开源。'),
               SizedBox(height: 8),
               Text('使用的开源库:'),
               Text('- Flutter'),
@@ -220,48 +219,24 @@ class MoreScreen extends ConsumerWidget {
     showCupertinoDialog(
       context: context,
       builder: (context) => CupertinoAlertDialog(
-        title: const Text('关于 XWorkout'),
+        title: const Text('关于 健身记录'),
         content: Column(
           children: [
             const SizedBox(height: 16),
-            const Text('XWorkout'),
+            const Text('健身记录'),
             const Text('版本: 4.9.15 (Build 15)'),
             const SizedBox(height: 8),
             const Text('轻量级健身记录软件'),
             const Text('简洁、离线、跨平台'),
             const SizedBox(height: 16),
-            GestureDetector(
-              onTap: () {
-                launchUrl(Uri.parse('https://github.com/AixKevin/XWorkout'));
-              },
-              child: const Text(
-                'https://github.com/AixKevin/XWorkout',
-                style: TextStyle(color: CupertinoColors.activeBlue),
-              ),
-            ),
+            const Text('开发者: LeiLie'),
             const SizedBox(height: 16),
             const Text('基于 Flutter 开发'),
             const SizedBox(height: 16),
-            // 贡献者
-            const Text('贡献者', style: TextStyle(fontWeight: FontWeight.w600)),
-            const SizedBox(height: 8),
-            Center(
-              child: SizedBox(
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _ContributorItem(
-                      avatarUrl: 'https://avatars.githubusercontent.com/u/73382534?v=4',
-                      username: 'Aixkevin',
-                    ),
-                    _ContributorItem(
-                      avatarUrl: 'https://avatars.githubusercontent.com/u/114860230?v=4',
-                      username: 'Immortal-Fates',
-                    ),
-                  ],
-                ),
-              ),
+            const Text(
+              '本应用基于 XWorkout 修改，遵循 MIT 许可证开源。',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
             ),
           ],
         ),
@@ -662,52 +637,3 @@ class _DisplaySettingsSheetState extends ConsumerState<_DisplaySettingsSheet> {
   }
 }
 
-class _ContributorItem extends StatelessWidget {
-  final String avatarUrl;
-  final String username;
-
-  const _ContributorItem({
-    required this.avatarUrl,
-    required this.username,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 12),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ClipOval(
-            child: Image.network(
-              avatarUrl,
-              width: 32,
-              height: 32,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: CupertinoColors.systemGrey,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    CupertinoIcons.person_fill,
-                    size: 20,
-                    color: CupertinoColors.white,
-                  ),
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            username,
-            style: const TextStyle(fontSize: 10),
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
-      ),
-    );
-  }
-}

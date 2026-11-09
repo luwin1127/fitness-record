@@ -194,12 +194,12 @@ class _DataManagementScreenState extends ConsumerState<DataManagementScreen> {
       
       final directory = await getTemporaryDirectory();
       final timestamp = DateTime.now().millisecondsSinceEpoch;
-      final file = File('${directory.path}/xworkout_backup_$timestamp.json');
+      final file = File('${directory.path}/fitness_backup_$timestamp.json');
       await file.writeAsString(json);
       
       await Share.shareXFiles(
         [XFile(file.path)],
-        text: 'XWorkout 备份',
+        text: '健身记录 备份',
       );
       
       if (mounted) {
@@ -224,12 +224,12 @@ class _DataManagementScreenState extends ConsumerState<DataManagementScreen> {
       
       final directory = await getTemporaryDirectory();
       final timestamp = DateTime.now().millisecondsSinceEpoch;
-      final file = File('${directory.path}/xworkout_export_$timestamp.csv');
+      final file = File('${directory.path}/fitness_export_$timestamp.csv');
       await file.writeAsString(csv);
       
       await Share.shareXFiles(
         [XFile(file.path)],
-        text: 'XWorkout 数据导出 (CSV)',
+        text: '健身记录 数据导出 (CSV)',
       );
       
     } catch (e) {
@@ -251,7 +251,7 @@ class _DataManagementScreenState extends ConsumerState<DataManagementScreen> {
       
       await Share.shareXFiles(
         [XFile(file.path)],
-        text: 'XWorkout 训练报告 (PDF)',
+        text: '健身记录 训练报告 (PDF)',
       );
     } catch (e) {
       if (mounted) {
